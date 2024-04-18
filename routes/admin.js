@@ -11,6 +11,10 @@ router.get("/add-product",productsController.getAddProduct);
 
 router.post("/add-product", productsController.postAddProduct);
 
+router.get("/delete-product/:id",productsController.deleteAddedProduct)
+
 module.exports = router
+
+
 
 

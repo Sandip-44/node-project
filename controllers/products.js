@@ -7,20 +7,22 @@ exports.getAddProduct = (req, res, next) => {
         pageTitle: "Add Product",
         path: "/admin/admin-product",
         activeProduct: true,
+        productCSS:true,
     });
 }
 
 exports.postAddProduct = (req, res, next) => {
     // products.push({ title: req.body.title });
-    const product = new Product(req.body.title);
+    console.log("req.body", req.body);
+    const { title,description, amount } = req.body;
+    const product = new Product(title, description, amount);
 
     product.save();
     res.redirect("/");
 }
 
 exports.getProducts =  (req, res, next) => {
-
-    const products = Product.fetchAll()
+    Product.fetchAll(products => {
     res.render("shop", {
         prods: products,
         pageTitle: "shop",
@@ -29,5 +31,13 @@ exports.getProducts =  (req, res, next) => {
         activeShop: true,
         productCss: true,
     });
+
+    })
+}
+
+exports.deleteAddedProduct = (req, res, next) => {
+    console.log("req.body", req.params.id);
+
+
 }
 

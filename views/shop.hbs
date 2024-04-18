@@ -11,14 +11,13 @@
             <img src="" alt="image not foud" />
           </div>
           <div class="card__content">
-            <h2 class="product__pice">$234</h2>
-            <p class="product__description">Lorem ipsum dolor sit amet
-              consectetur adipisicing elit. Suscipit veniam optio incidunt
-              cumque sapiente aspernatur aut in tempore soluta distinctio. Porro
-              odio atque dignissimos eligendi eos non saepe? Corporis, magni?</p>
+            <h2 class="product__pice">{{this.amount}}</h2>
+            <p class="product__description">{{this.description}}</p>
           </div>
           <div class="card__actions">
             <button class="btn">Add to cart</button>
+            <a href="/admin/delete-product/{{this.id}}" type="submit">Delete</a>
+
           </div>
         </article>
       {{/each}}
